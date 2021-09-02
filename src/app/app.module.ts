@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from "@angular/forms";
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
 //imports p componentes
 import { AppComponent } from './app.component';
@@ -29,7 +30,10 @@ import { InicioComponent } from './inicio/inicio.component';
     FormsModule,
     HttpClientModule, 
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
